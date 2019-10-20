@@ -7,3 +7,16 @@ services:
     ports:
       - 8080:8080
       - 5005:5005
+    networks:
+      - net
+
+  # TODO: run Wiremock standalone to mock 'another-service'
+  wiremock:
+    image: rodolpheche/wiremock:2.25.1-alpine
+    ports:
+      - 8002:8080
+    networks:
+      - net
+
+networks:
+  net:
